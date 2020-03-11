@@ -1,0 +1,44 @@
+{
+    "name": "WorkflowStep",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "StepState",
+            "fieldValues": "WAITING,RUNNING,FINISH,ERROR",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "workflow",
+            "otherEntityRelationshipName": "workflowStep",
+            "relationshipName": "workflow",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200311223500",
+    "entityTableName": "workflow_step",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

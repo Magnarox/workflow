@@ -1,0 +1,25 @@
+entity Workflow {
+	name String required,
+    description String
+}
+
+entity WorkflowStep {
+	name String required,
+    description String,
+    state StepState required
+}
+
+enum StepState {
+    WAITING, RUNNING, FINISH, ERROR
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Workflow to WorkflowStep,
+}
+
+// Set pagination options
+paginate Workflow with pagination
+
+// Set service options to all except few
+service all with serviceImpl
